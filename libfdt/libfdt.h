@@ -145,7 +145,7 @@ static inline void fdt32_st(void *property, uint32_t value)
 {
 	uint8_t *bp = (uint8_t *)property;
 
-	bp[0] = value >> 24;
+	bp[0] = value >> 24 & 0xff;
 	bp[1] = (value >> 16) & 0xff;
 	bp[2] = (value >> 8) & 0xff;
 	bp[3] = value & 0xff;
@@ -169,7 +169,7 @@ static inline void fdt64_st(void *property, uint64_t value)
 {
 	uint8_t *bp = (uint8_t *)property;
 
-	bp[0] = value >> 56;
+	bp[0] = value >> 56 & 0xff;
 	bp[1] = (value >> 48) & 0xff;
 	bp[2] = (value >> 40) & 0xff;
 	bp[3] = (value >> 32) & 0xff;
@@ -256,16 +256,16 @@ int fdt_next_subnode(const void *fdt, int offset);
 		struct fdt_header *fdth = (struct fdt_header *)fdt; \
 		fdth->name = cpu_to_fdt32(val); \
 	}
-fdt_set_hdr_(magic);
-fdt_set_hdr_(totalsize);
-fdt_set_hdr_(off_dt_struct);
-fdt_set_hdr_(off_dt_strings);
-fdt_set_hdr_(off_mem_rsvmap);
-fdt_set_hdr_(version);
-fdt_set_hdr_(last_comp_version);
-fdt_set_hdr_(boot_cpuid_phys);
-fdt_set_hdr_(size_dt_strings);
-fdt_set_hdr_(size_dt_struct);
+fdt_set_hdr_(magic)
+fdt_set_hdr_(totalsize)
+fdt_set_hdr_(off_dt_struct)
+fdt_set_hdr_(off_dt_strings)
+fdt_set_hdr_(off_mem_rsvmap)
+fdt_set_hdr_(version)
+fdt_set_hdr_(last_comp_version)
+fdt_set_hdr_(boot_cpuid_phys)
+fdt_set_hdr_(size_dt_strings)
+fdt_set_hdr_(size_dt_struct)
 #undef fdt_set_hdr_
 
 /**
