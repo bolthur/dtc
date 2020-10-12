@@ -1,7 +1,7 @@
 
-noinst_LIBRARIES = libfdt.a
+noinst_LTLIBRARIES = libfdt.la
 AM_CFLAGS = -Wno-unused-function -Wno-sign-conversion
-libfdt_a_SOURCES = \
+libfdt_la_SOURCES = \
   fdt_addresses.c \
   fdt_check.c \
   fdt_empty_tree.c \
