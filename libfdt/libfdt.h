@@ -145,10 +145,10 @@ static inline void fdt32_st(void *property, uint32_t value)
 {
 	uint8_t *bp = (uint8_t *)property;
 
-	bp[0] = value >> 24 & 0xff;
-	bp[1] = (value >> 16) & 0xff;
-	bp[2] = (value >> 8) & 0xff;
-	bp[3] = value & 0xff;
+	bp[0] = ( uint8_t )( value >> 24 & 0xff );
+	bp[1] = ( uint8_t )( (value >> 16) & 0xff );
+	bp[2] = ( uint8_t )( (value >> 8) & 0xff );
+	bp[3] = ( uint8_t )( value & 0xff );
 }
 
 static inline uint64_t fdt64_ld(const fdt64_t *p)
@@ -169,14 +169,14 @@ static inline void fdt64_st(void *property, uint64_t value)
 {
 	uint8_t *bp = (uint8_t *)property;
 
-	bp[0] = value >> 56 & 0xff;
-	bp[1] = (value >> 48) & 0xff;
-	bp[2] = (value >> 40) & 0xff;
-	bp[3] = (value >> 32) & 0xff;
-	bp[4] = (value >> 24) & 0xff;
-	bp[5] = (value >> 16) & 0xff;
-	bp[6] = (value >> 8) & 0xff;
-	bp[7] = value & 0xff;
+	bp[0] = ( uint8_t )( value >> 56 & 0xff );
+	bp[1] = ( uint8_t )( (value >> 48) & 0xff );
+	bp[2] = ( uint8_t )( (value >> 40) & 0xff );
+	bp[3] = ( uint8_t )( (value >> 32) & 0xff );
+	bp[4] = ( uint8_t )( (value >> 24) & 0xff );
+	bp[5] = ( uint8_t )( (value >> 16) & 0xff );
+	bp[6] = ( uint8_t )( (value >> 8) & 0xff );
+	bp[7] = ( uint8_t )( value & 0xff );
 }
 
 /**********************************************************************/
